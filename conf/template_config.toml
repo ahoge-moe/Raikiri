@@ -9,8 +9,8 @@ authorization = [
   { name = "name_3", key = "key_3" },
 ]
 
-# RabbitMQ settings
-[rabbitmq]
+# broker settings
+[broker]
 protocol = "amqp"
 host = "localhost"
 port = "5672"

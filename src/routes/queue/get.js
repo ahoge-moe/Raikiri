@@ -13,12 +13,12 @@ module.exports = router.get('/queue', async (req, res) => {
 
   try {
     const url = {
-      protocol: configHandler.loadConfigFile().rabbitmq.protocol,
-      hostname: configHandler.loadConfigFile().rabbitmq.host,
-      port: configHandler.loadConfigFile().rabbitmq.port,
-      // username: configHandler.loadConfigFile().rabbitmq.username,
-      // password: configHandler.loadConfigFile().rabbitmq.password,
-      // heartbeat: configHandler.loadConfigFile().rabbitmq.heartbeat,
+      protocol: configHandler.loadConfigFile().broker.protocol,
+      hostname: configHandler.loadConfigFile().broker.host,
+      port: configHandler.loadConfigFile().broker.port,
+      // username: configHandler.loadConfigFile().broker.username,
+      // password: configHandler.loadConfigFile().broker.password,
+      // heartbeat: configHandler.loadConfigFile().broker.heartbeat,
     };
   
     const connection = await amqp.connect(url);
@@ -26,11 +26,11 @@ module.exports = router.get('/queue', async (req, res) => {
     channel.on('close', () => { logger.error('Close event emitted!') });
     channel.on('error', err => { logger.error('Error event emitted!') });
   
-    const queue = await channel.checkQueue(configHandler.loadConfigFile().rabbitmq.queue);
+    const queue = await channel.checkQueue(configHandler.loadConfigFile().broker.queue);
     return res.status(200).send(queue);
   }
   catch (e) {
     logger.error(e);
-    return res.status(502).send('Failed to connect to RabbitMQ');
+    return res.status(502).send('Failed to connect to broker');
   }
 });
