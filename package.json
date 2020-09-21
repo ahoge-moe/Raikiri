@@ -1,0 +1,26 @@
+{
+  "name": "raikiri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizo06/raikiri.git"
+  },
+  "keywords": [],
+  "author": "wizo06",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wizo06/raikiri/issues"
+  },
+  "homepage": "https://github.com/wizo06/raikiri#readme",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "express": "^4.17.1",
+    "logger": "github:wizo06/logger",
+    "toml-require": "^1.2.0"
+  }
+}

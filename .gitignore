@@ -1,0 +1,8 @@
+# Ignore node_modules/
+node_modules/
+
+# Ignore all files in conf/
+conf/*
+
+# Except template files
+!conf/template_*
